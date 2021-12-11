@@ -1,13 +1,17 @@
 import React from 'react'
 
-export default function Contact() {
+export default function Contact(props) {
     return (
         <div>
-            <div className="card text-dark bg-light mb-3" style={{maxWidth: '18 rem'}}>
-                <div className="card-header">Contact</div>
-                <div className="card-body">
-                    <h5 className="card-title">Light card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div className="card text-dark bg-light mb-3" >
+                <h3 className="card-header" style={{color:props.mode==="light"?"black":"white", backgroundColor:props.mode==="light"?"#77728026":"#706fa2"}}>Contact</h3>
+                <div className="card-body"  style={{color:props.mode==="light"?"black":"white", backgroundColor:props.mode==="light"?"white":"#3a395a"}}>
+                    <p className="card-text">
+                        <ul>
+                            <li><strong>Phone No</strong>:  8006638142</li>
+                            <li><strong>Email ID</strong>:  csaurabh660@gmail.com</li>
+                        </ul>
+                    </p>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ export default function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                                <Link className="nav-link" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/About">About</Link>
@@ -23,15 +23,21 @@ export default function Navbar(props) {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/Contact">Contact</Link>
                             </li>
+                            <li className="nav-item">
+                            <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} >
+                            <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckDefault" />
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >Dark Mode</label>
+                            </div>
+                            </li>
 
                         </ul>
                     </div>
-                    <div>
-                        <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                    {/* <div>
+                         <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                             <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckDefault" />
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault" >Dark Mode</label>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </nav>
         </>

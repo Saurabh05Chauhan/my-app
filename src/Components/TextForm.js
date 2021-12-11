@@ -39,9 +39,10 @@ export default function TextForm(props) {
     }
 
     const handleCopyClick=()=>{
-        let textcpy= document.getElementById('txtArea');
-        textcpy.select();
-        navigator.clipboard.writeText(textcpy.value);
+        // let textcpy= document.getElementById('txtArea');
+        // textcpy.select();
+        navigator.clipboard.writeText(text);
+        // document.getSelection().removeAllRanges();
         if(text!==""){
         props.ShowAlert("success","Text Copied");
         }else{
@@ -75,7 +76,7 @@ export default function TextForm(props) {
         <div className="container mb-3">
         <h1 style={{color:props.mode==="light"?"black":"white"}} >{props.heading}</h1>
             <div className="mb-3">
-                <textarea className="form-control" style={{background:props.mode==="light"?"white":"#020072", color:props.mode==="light"?"black":"white"}} value={text} onChange={handleOnChange} placeholder="Enter Your Text" id="txtArea" rows="8" ></textarea>
+                <textarea className="form-control" style={{background:props.mode==="light"?"white":"#3a395a", color:props.mode==="light"?"black":"white"}} value={text} onChange={handleOnChange} placeholder="Enter Your Text" id="txtArea" rows="8" ></textarea>
             </div>
             <button type="button" onClick={handleUpperClick} className="btn btn-primary mx-1">To Upper Case</button>
             <button type="button" onClick={handleLowClick} className="btn btn-primary mx-1">To Lower Case</button>
@@ -85,7 +86,8 @@ export default function TextForm(props) {
         </div>
         <div className="container my-3">
             <h3 style={{color:props.mode==="light"?"black":"white"}}>Text Status</h3>
-            <p style={{color:props.mode==="light"?"black":"white"}}>{text===""?0:text.split(/\b[ .*]\b/).length} Words and {text.length} Characters</p>
+            {/* <p style={{color:props.mode==="light"?"black":"white"}}>{text===""?0:text.split(/\b[ .*]\b/).length} Words and {text.length} Characters</p> */}
+            <p style={{color:props.mode==="light"?"black":"white"}}>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
         </div>
         <div className="container my-3">
             <h3 style={{color:props.mode==="light"?"black":"white"}}>Text Preview</h3>
